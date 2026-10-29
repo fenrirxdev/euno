@@ -1,0 +1,40 @@
+name: 不具合の報告 / Bug report
+description: euno がうまく動かないとき / When euno does not work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        この Issue は公開されます。会話の内容、個人名、トークンなどは書かないでください。
+        This issue is public. Do not include conversation text, names or tokens.
+  - type: textarea
+    id: what
+    attributes:
+      label: 起きたこと / What happened
+      description: 何をしたら、何が起きたか。期待していた動きも書いてください。 / What you did, what happened, and what you expected.
+    validations:
+      required: true
+  - type: dropdown
+    id: apps
+    attributes:
+      label: 関係するアプリ / Apps involved
+      multiple: true
+      options:
+        - Claude
+        - Codex
+        - Cursor
+    validations:
+      required: true
+  - type: input
+    id: app-versions
+    attributes:
+      label: 各アプリのバージョン / App versions
+      placeholder: "Claude 3.1623.0, Codex 26.1013.40934, Cursor 3.26.13"
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: 診断情報 / Diagnostics
+      description: euno のメニューの「問題を報告…」から開くと、ここに入ります。 / Filled in when you open this from Report a Problem… in euno's menu.
+      render: text
+    validations:
+      required: true
