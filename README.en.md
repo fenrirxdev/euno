@@ -1,3 +1,14 @@
+<p align="center">
+  <img src="images/icon.png" width="128" height="128" alt="euno">
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/euno-en-dark.gif">
+    <img src="images/euno-en-light.gif" width="720" alt="Typing /euno cx in Claude reads Codex's review and carries on">
+  </picture>
+</p>
+
 # euno
 
 [日本語](README.md)
