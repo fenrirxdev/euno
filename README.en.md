@@ -11,7 +11,7 @@
 
 # euno
 
-[日本語](README.md)
+[日本語](README.md) · [Product page](https://euno.fenrirx.dev/)
 
 euno is a macOS menu bar app that bridges chats in Claude, Codex and Cursor, so an AI can read the conversation in the chat on the other side when it needs to.
 

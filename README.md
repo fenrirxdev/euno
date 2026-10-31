@@ -11,7 +11,7 @@
 
 # euno
 
-[English](README.en.md)
+[English](README.en.md) · [製品ページ](https://euno.fenrirx.dev/ja/)
 
 euno は、Claude、Codex、Cursor のチャットをブリッジで結び、AI が相手のチャットの会話を必要なときに読めるようにする macOS のメニューバーアプリです。
 
