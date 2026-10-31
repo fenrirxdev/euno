@@ -4,76 +4,76 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="images/euno-ja-dark.gif">
-    <img src="images/euno-ja-light.gif" width="720" alt="Claude で /euno cx と打つと、Codex のレビューを読んで作業を続ける">
+    <source media="(prefers-color-scheme: dark)" srcset="images/euno-en-dark.gif">
+    <img src="images/euno-en-light.gif" width="720" alt="Typing /euno cx in Claude reads Codex's review and carries on">
   </picture>
 </p>
 
 # euno
 
-[English](README.en.md)
+[日本語](README.ja.md) · [Product page](https://euno.fenrirx.dev/)
 
-euno は、Claude、Codex、Cursor のチャットをブリッジで結び、AI が相手のチャットの会話を必要なときに読めるようにする macOS のメニューバーアプリです。
+euno is a macOS menu bar app that bridges chats in Claude, Codex and Cursor, so an AI can read the conversation in the chat on the other side when it needs to.
 
-このリポジトリでは、euno の配布と不具合報告の受け付けを行います。ソースコードは公開していません。
+This repository is where euno is distributed and where bugs are reported. The source code is not public.
 
-euno は Anthropic、OpenAI、Anysphere とは関係のない、個人が開発した非公式のアプリです。
+euno is an unofficial app made by an individual developer. It is not affiliated with Anthropic, OpenAI or Anysphere.
 
-## 必要なもの
+## Requirements
 
-- macOS 15（Sequoia）以降
-- Apple シリコン搭載の Mac
-- 次のアプリのうち2つ以上
-  - Claude（デスクトップアプリの Code モード、または Claude Code）
+- macOS 15 (Sequoia) or later
+- A Mac with Apple silicon
+- At least two of these apps:
+  - Claude (Code mode in the desktop app, or Claude Code)
   - Codex
   - Cursor
-- MCP サーバーの登録には、Claude と Codex では各アプリの CLI（`claude`、`codex`）を使います。スキルの導入には `npx`（Node）を使います。
+- To register the MCP server, euno uses each app's CLI for Claude and Codex (`claude`, `codex`). To install the skill, it uses `npx` (Node).
 
-## インストール
+## Install
 
-1. [euno.dmg をダウンロード](https://github.com/fenrirxdev/euno/releases/latest/download/euno.dmg)します。
-2. DMG を開き、euno を「アプリケーション」フォルダにドラッグします。
-3. 「アプリケーション」フォルダから euno を開きます。
+1. [Download euno.dmg](https://github.com/fenrirxdev/euno/releases/latest/download/euno.dmg).
+2. Open the DMG and drag euno to the Applications folder.
+3. Open euno from the Applications folder.
 
-DMG の中から開いた euno では、MCP サーバーを登録できません。必ず「アプリケーション」フォルダに移してから開いてください。
+euno cannot register its MCP server while it runs from inside the DMG. Move it to the Applications folder before opening it.
 
-## 初めて使うとき
+## First run
 
-1. **アクセシビリティを許可する**：euno は、各アプリで表示中のチャットを見分けるためと、右 ⌘ キーの2回押しを受け取るために、アクセシビリティの許可を使います。押されたキーの内容は読み取らず、記録もしません。
-2. **アプリを登録する**：euno の設定の「連携」で、使うアプリごとに MCP サーバーとスキルを登録します。登録より前に始めたチャットでは使えません。登録のあとは新しいチャットを始めてください。Codex はアプリの再起動も必要です。
-3. **ブリッジを作る**：右 ⌘ キーを2回押してパネルを開き、結びたいチャットを選びます。
+1. **Allow Accessibility.** euno uses the Accessibility permission to tell which chat each app is showing, and to notice a double tap of the right ⌘ key. It never reads or records which keys you press.
+2. **Register the apps.** In euno's settings, under Integrations, register the MCP server and the skill for each app you use. Chats started before registering cannot use euno, so start a new chat afterwards. Codex also needs to be restarted.
+3. **Make a bridge.** Double-tap the right ⌘ key to open the panel, and pick the chats to bridge.
 
-チャットの中では、Claude と Cursor では `/euno`、Codex では `$euno` で相手のチャットを読み込めます。
+Inside a chat, `/euno` in Claude and Cursor, or `$euno` in Codex, brings in the chat on the other side.
 
-## アップデート
+## Updates
 
-euno は新しいバージョンを自動で確認できます。自動で確認するかどうかは2回目に起動したときに尋ねます。あとから設定で変えられます。手動で確認するときは、設定の「一般」にある「アップデートを確認」を使います。
+euno can check for new versions automatically. It asks whether to on the second launch, and you can change this later in settings. To check by hand, open Settings → General → Check for Updates.
 
-## プライバシー
+## Privacy
 
-- euno は、各アプリが Mac の中に保存しているチャットの履歴を読み取り専用で読みます。履歴を書き換えることはありません。
-- 読み取るのは、あなたがブリッジで結んだチャットだけです。
-- ブリッジの設定と、どの AI がどのチャットを読んだかの記録は、`~/Library/Application Support/euno` に保存します。
-- アップデートの確認・ダウンロードやスキルの追加・更新で通信します。会話の本文、読んだ記録、利用状況を euno が外部へ送ることはありません。
+- euno reads the chat history each app stores on your Mac, read-only. It never changes that history.
+- It reads only the chats you bridged.
+- Your bridges, and a record of which AI read which chat, are kept in `~/Library/Application Support/euno`.
+- euno connects to the network to check for and download updates, and to install or update the skill. It does not send message text, read records, or usage data to external services.
 
-読むもの、書くもの、送るものの一覧は [プライバシー](PRIVACY.md) にあります。ブリッジ名を AI に考えさせる操作では、チャットのタイトルとリポジトリの名前を選んだ CLI に渡します。
+See [Privacy](PRIVACY.md#privacy) for what euno reads, writes, and sends. When you ask AI to name a bridge, euno passes chat titles and repository names to the CLI you choose.
 
-## アンインストール
+## Uninstall
 
-1. euno の設定の「連携」で、各アプリの MCP サーバーの登録を解除し、スキルをアンインストールします。Cursor は `~/.cursor/mcp.json` から `euno` の項目を削除します。
-2. euno を終了し、「アプリケーション」フォルダから削除します。
-3. 設定と記録も消す場合は、`~/Library/Application Support/euno` を削除します。
+1. In euno's settings, under Integrations, unregister the MCP server and uninstall the skill for each app. For Cursor, delete the `euno` entry from `~/.cursor/mcp.json`.
+2. Quit euno and delete it from the Applications folder.
+3. To remove its settings and records too, delete `~/Library/Application Support/euno`.
 
-## 不具合の報告
+## Reporting bugs
 
-[Issues](https://github.com/fenrirxdev/euno/issues/new/choose) から報告してください。Issue は公開されます。会話の内容、個人名、トークンなどを書かないでください。
+Report bugs in [Issues](https://github.com/fenrirxdev/euno/issues/new/choose). Issues are public, so do not include conversation text, names or tokens.
 
-euno のメニューにある「問題を報告…」を使うと、バージョン、権限、連携の状態が入力された Issue の画面が開きます。会話の本文は含まれません。送信前に内容を確認してください。
+Report a Problem… in euno's menu opens an issue form with version, permission, and integration information filled in. It contains no message text. Check the contents before submitting.
 
-## 対応状況
+## Compatibility
 
-各アプリは、チャット履歴の保存形式を予告なく変えることがあります。その場合、euno が会話を読めなくなることがあります。現在はベータです。各リリースの変更点と制限はリリースノートに記載します。
+The apps may change how they store chat history without notice, and euno may then be unable to read conversations. euno is currently in beta. Changes and limitations are listed in each release's notes.
 
-## ライセンス
+## License
 
 Copyright © 2026 fenrirxdev. All rights reserved.
