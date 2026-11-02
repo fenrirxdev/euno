@@ -39,7 +39,7 @@ euno cannot register its MCP server while it runs from inside the DMG. Move it t
 
 ## First run
 
-1. **Allow Accessibility.** euno uses the Accessibility permission to tell which chat each app is showing, and to notice a double tap of the right ⌘ key. It never reads or records which keys you press.
+1. **Allow Accessibility.** euno uses the Accessibility permission to tell which chat each app is showing, and to notice a double tap of the right ⌘ key. It never records which keys you press. Apart from ⌘, it only checks whether a key is one of the Japanese input keys (英数 or かな).
 2. **Register the apps.** In euno's settings, under Integrations, register the MCP server and the skill for each app you use. Chats started before registering cannot use euno, so start a new chat afterwards. Codex also needs to be restarted.
 3. **Make a bridge.** Double-tap the right ⌘ key to open the panel, and pick the chats to bridge.
 
